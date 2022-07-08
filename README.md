@@ -35,6 +35,8 @@
 ### 5) 자연어에서 특징을 어떻게 추출? Word2Vec(Word embedding)
   (1) one-hot encoding: 가장 단순한 표현으로 n개의 단어를 n차원의 벡터로 표현하는 것. <br>
   - BUT 단점: 단어의 **의미**를 벡터 공간에 표현 불가, 차원의 저주 <br>
+
+
   (2) Word2Vec 알고리즘: 주변부의 단어를 예측하는 방식으로 학습(Skip-gram방식) <br>
   - `input(one-hot vector) + hidden layer + output` 구성 <br>
   - 자연어(단어)의 의미를 벡터 공간에 임베딩 <br>
