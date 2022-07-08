@@ -36,7 +36,6 @@
   (1) one-hot encoding: 가장 단순한 표현으로 n개의 단어를 n차원의 벡터로 표현하는 것. <br>
   - BUT 단점: 단어의 **의미**를 벡터 공간에 표현 불가, 차원의 저주 <br>
 
-
   (2) Word2Vec 알고리즘: 주변부의 단어를 예측하는 방식으로 학습(Skip-gram방식) <br>
   - `input(one-hot vector) + hidden layer + output` 구성 <br>
   - 자연어(단어)의 의미를 벡터 공간에 임베딩 <br>
@@ -46,7 +45,18 @@
   - 장점: Word embedding, 한정된 차원에서 표현 가능, 의미 관계 유추 가능, 비지도 학습으로 의미 학습 가능(주변 관계로 의미 학습하므로), 벡터 연산 가능
   - WordSim353: cosine similarity(단어 벡터의 유사도)
   - analogy test: 두 단어의 의미관계 유추 -> 덧셈 뺄셈으로 임베딩 공간 확인 하는 것- semantic/syntatic analogy
-
+```
+<정리>
+  Word2Vec은 단어가 가지는 의미 자체를 다차원 공간에 '벡터화' 하는 것
+             중심 단어의 주변 단어들을 이용해 중심단어를 추론하는 방식으로 학습.
+1) 장점
+  - 단어간의 유사도 측정에 용이
+  - 단어간의 관계 파악에 용이
+  - 벡터 연산을 통한 추론이 가능(ex. 한국 - 서울 + 도쿄 = ?_
+2) 단점
+  - 단어의 subword information antl(ex. 고양경찰서와 종로경찰서와 비슷한 결인 것을 알지 못함)
+  - Out of Vocabulary(OOV)에서 적용 불가능
+```
 
 
 
