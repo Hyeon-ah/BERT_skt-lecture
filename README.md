@@ -32,7 +32,8 @@
 < 기계 학습의 핵심 기술!> <br>
 : 컴퓨터가 스스로 찾고(Feature extraction) +  스스로 분류(Classification) <br>
 
-### 5) 자연어에서 특징을 어떻게 추출? Word2Vec(Word embedding)
+### 5) 자연어에서 특징을 어떻게 추출? 
+## Word embedding - Word2Vec
   (1) one-hot encoding: 가장 단순한 표현으로 n개의 단어를 n차원의 벡터로 표현하는 것. <br>
   - BUT 단점: 단어의 **의미**를 벡터 공간에 표현 불가, 차원의 저주 <br>
 
@@ -57,13 +58,29 @@
   - 단어의 subword information antl(ex. 고양경찰서와 종로경찰서와 비슷한 결인 것을 알지 못함)
   - Out of Vocabulary(OOV)에서 적용 불가능
 ```
+## Word embedding - FastText
+  - 용언과 sub용언활용을 wordembedding에 사용
+  - facebook에서 공개한 공개 open source library
+  - OOV 단어도 정보처리 가능
+  - 오탈자 입력도 처리 가능
+  - 등장 횟수가 적은 학습 단어에 대해서도 강세
+  (1) Traning
+    - w2v과 유사하지만, 단어를 n-gram으로 나누어 학습 수행
+    - n-gram set 만듦 -> 이것을 input으로 넣어 모두 학습 : subword들을 이용해 학습 이루어짐
+  (2) Testing
+    - 입력 단어가 vocabulary에 있을 경우: w2v처럼 해당 단어의 vector를 return함.
+    - 입력 단어가 OOV일 경우: n-gram vector들의 합산을 return함.
+    
+
+### 6) Word embedding의 활용
+어떤 Feature을 입력으로 넣어야 분류를 해줌 
+이 피쳐를 워드임베딩을 이용해 w2v로 벡터 공간을  Feature로써 사용하는 것
+ 토픽 키워드 추출에 많이 사용하신가도 함
 
 
-
-
-
-
-
+### 7) Word embedding의 한계점
+- w2v 이나 FastText와 같은 word embedding방식은 동형어, 다의어 등에 대해선 embedding 성능이 좋지 못하다는 단점이 있음
+- 주변 단어를 통해 학습이 이루어 지므로 **문맥**을 고려할 수 없음.
 
 
 2. 언어모델 (LM)
